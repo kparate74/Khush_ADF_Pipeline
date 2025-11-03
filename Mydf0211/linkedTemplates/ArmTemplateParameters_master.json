@@ -5,8 +5,11 @@
 		"factoryName": {
 			"value": "Mydf0211"
 		},
-		"LS_SOUURCE_connectionString": {
-			"value": ""
+		"LS_SOUURCE_properties_typeProperties_connectionString_secretName": {
+			"value": "mysecret0211"
+		},
+		"mykey_ls_properties_typeProperties_baseUrl": {
+			"value": "https://mykeyvault0211.vault.azure.net/"
 		},
 		"containerUri": {
 			"value": ""

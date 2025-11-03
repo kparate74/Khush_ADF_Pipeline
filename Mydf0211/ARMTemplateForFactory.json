@@ -7,9 +7,13 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "Mydf0211"
 		},
-		"LS_SOUURCE_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'LS_SOUURCE'"
+		"LS_SOUURCE_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "mysecret0211"
+		},
+		"mykey_ls_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://mykeyvault0211.vault.azure.net/"
 		}
 	},
 	"variables": {
@@ -182,7 +186,29 @@
 				"annotations": [],
 				"type": "AzureBlobStorage",
 				"typeProperties": {
-					"connectionString": "[parameters('LS_SOUURCE_connectionString')]"
+					"connectionString": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "mykey_ls",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "[parameters('LS_SOUURCE_properties_typeProperties_connectionString_secretName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/mykey_ls')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/mykey_ls')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('mykey_ls_properties_typeProperties_baseUrl')]"
 				}
 			},
 			"dependsOn": []

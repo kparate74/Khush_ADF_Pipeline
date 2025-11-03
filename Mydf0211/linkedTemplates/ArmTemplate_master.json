@@ -7,9 +7,13 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "Mydf0211"
 		},
-		"LS_SOUURCE_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'LS_SOUURCE'"
+		"LS_SOUURCE_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "mysecret0211"
+		},
+		"mykey_ls_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://mykeyvault0211.vault.azure.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -38,8 +42,11 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"LS_SOUURCE_connectionString": {
-						"value": "[parameters('LS_SOUURCE_connectionString')]"
+					"mykey_ls_properties_typeProperties_baseUrl": {
+						"value": "[parameters('mykey_ls_properties_typeProperties_baseUrl')]"
+					},
+					"LS_SOUURCE_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('LS_SOUURCE_properties_typeProperties_connectionString_secretName')]"
 					}
 				}
 			},
