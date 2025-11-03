@@ -1,0 +1,9 @@
+{
+	"name": "Mydf0211",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "294b651d-01a7-4551-a306-d0a6e37230d5",
+		"tenantId": "b8191c04-d007-46f9-b061-fcaaf98f9f9a"
+	}
+}
